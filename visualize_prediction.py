@@ -36,6 +36,7 @@ def calc_cam(x, label, model):
         cam_torch: 224x224 torch tensor containing activation map
     """
     FINDINGS = [
+        'COVID-19',
         'Atelectasis',
         'Cardiomegaly',
         'Effusion',
@@ -122,6 +123,7 @@ def calc_cam(x, label, model):
     cam=1/(1+np.exp(-cam))
     
     label_baseline_probs={
+        'COVID-19':0.04,
         'Atelectasis':0.103,
         'Cardiomegaly':0.025,
         'Effusion':0.119,
@@ -177,6 +179,7 @@ def load_data(
     std = [0.229, 0.224, 0.225]
 
     FINDINGS = [
+        'COVID-19',
         'Atelectasis',
         'Cardiomegaly',
         'Effusion',
@@ -229,6 +232,7 @@ def show_next(dataloader, model, LABEL):
         None (plots output)
     """
     FINDINGS = [
+        'COVID-19',
         'Atelectasis',
         'Cardiomegaly',
         'Effusion',
