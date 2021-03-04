@@ -42,6 +42,7 @@ class CXRDataset(Dataset):
 
         self.df = self.df.set_index("Image Index")
         self.PRED_LABEL = [
+            'COVID-19',
             'Atelectasis',
             'Cardiomegaly',
             'Effusion',
