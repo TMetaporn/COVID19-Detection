@@ -79,6 +79,7 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
     for column in true_df:
 
         if column not in [
+            'COVID-19',
             'Atelectasis',
             'Cardiomegaly',
             'Effusion',
