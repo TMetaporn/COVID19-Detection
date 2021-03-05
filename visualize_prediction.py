@@ -124,20 +124,20 @@ def calc_cam(x, label, model):
     
     label_baseline_probs={
         'COVID-19':0.04,
-        'Atelectasis':0.103,
+        'Atelectasis':0.087,
         'Cardiomegaly':0.025,
-        'Effusion':0.119,
-        'Infiltration':0.177,
-        'Mass':0.051,
-        'Nodule':0.056,
-        'Pneumonia':0.012,
-        'Pneumothorax':0.047,
-        'Consolidation':0.042,
-        'Edema':0.021,
+        'Effusion':0.089,
+        'Infiltration':0.145,
+        'Mass':0.029,
+        'Nodule':0.042,
+        'Pneumonia':0.051,
+        'Pneumothorax':0.043,
+        'Consolidation':0.036,
+        'Edema':0.012,
         'Emphysema':0.022,
-        'Fibrosis':0.015,
-        'Pleural_Thickening':0.03,
-        'Hernia':0.002
+        'Fibrosis':0.025,
+        'Pleural_Thickening':0.029,
+        'Hernia':0.003
     }
     
     #normalize by baseline probabilities
