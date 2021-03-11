@@ -212,7 +212,7 @@ def train_cnn(PATH_TO_IMAGES, LR, WEIGHT_DECAY):
     mean = [0.485, 0.456, 0.406]
     std = [0.229, 0.224, 0.225]
 
-    N_LABELS = 14  # we are predicting 14 labels
+    N_LABELS = 15  # we are predicting 14 labels
 
     # load labels
     df = pd.read_csv("nih_labels.csv", index_col=0)
