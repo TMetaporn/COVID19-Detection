@@ -199,7 +199,7 @@ def train_cnn(PATH_TO_IMAGES, LR, WEIGHT_DECAY):
         aucs: AUCs for each train,test tuple
 
     """
-    NUM_EPOCHS = 5
+    NUM_EPOCHS = 10
     BATCH_SIZE = 16
 
     try:
@@ -221,16 +221,16 @@ def train_cnn(PATH_TO_IMAGES, LR, WEIGHT_DECAY):
     data_transforms = {
         'train': transforms.Compose([
             transforms.RandomHorizontalFlip(),
-            transforms.Scale(224),
-            # because scale doesn't always give 224 x 224, this ensures 224 x
-            # 224
-            transforms.CenterCrop(224),
+            transforms.Scale(240),
+            # because scale doesn't always give 240 x 240, this ensures 240 x
+            # 240
+            transforms.CenterCrop(240),
             transforms.ToTensor(),
             transforms.Normalize(mean, std)
         ]),
         'val': transforms.Compose([
-            transforms.Scale(224),
-            transforms.CenterCrop(224),
+            transforms.Scale(240),
+            transforms.CenterCrop(240),
             transforms.ToTensor(),
             transforms.Normalize(mean, std)
         ]),
