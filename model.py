@@ -199,7 +199,7 @@ def train_cnn(PATH_TO_IMAGES, LR, WEIGHT_DECAY):
         aucs: AUCs for each train,test tuple
 
     """
-    NUM_EPOCHS = 100
+    NUM_EPOCHS = 10
     BATCH_SIZE = 16
 
     try:
@@ -212,7 +212,7 @@ def train_cnn(PATH_TO_IMAGES, LR, WEIGHT_DECAY):
     mean = [0.485, 0.456, 0.406]
     std = [0.229, 0.224, 0.225]
 
-    N_LABELS = 14  # we are predicting 14 labels
+    N_LABELS = 15  # we are predicting 15 labels
 
     # load labels
     df = pd.read_csv("nih_labels.csv", index_col=0)
@@ -221,16 +221,16 @@ def train_cnn(PATH_TO_IMAGES, LR, WEIGHT_DECAY):
     data_transforms = {
         'train': transforms.Compose([
             transforms.RandomHorizontalFlip(),
-            transforms.Scale(224),
-            # because scale doesn't always give 224 x 224, this ensures 224 x
-            # 224
-            transforms.CenterCrop(224),
+            transforms.Scale(240),
+            # because scale doesn't always give 240 x 240, this ensures 240 x
+            # 240
+            transforms.CenterCrop(240),
             transforms.ToTensor(),
             transforms.Normalize(mean, std)
         ]),
         'val': transforms.Compose([
-            transforms.Scale(224),
-            transforms.CenterCrop(224),
+            transforms.Scale(240),
+            transforms.CenterCrop(240),
             transforms.ToTensor(),
             transforms.Normalize(mean, std)
         ]),

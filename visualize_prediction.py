@@ -28,12 +28,12 @@ def calc_cam(x, label, model):
     function to generate a class activation map corresponding to a torch image tensor
 
     Args:
-        x: the 1x3x224x224 pytorch tensor file that represents the NIH CXR
+        x: the 1x3x240x240 pytorch tensor file that represents the NIH CXR
         label:user-supplied label you wish to get class activation map for; must be in FINDINGS list
         model: densenet121 trained on NIH CXR data
 
     Returns:
-        cam_torch: 224x224 torch tensor containing activation map
+        cam_torch: 240x240 torch tensor containing activation map
     """
     FINDINGS = [
         'COVID-19',
@@ -196,8 +196,8 @@ def load_data(
         'Hernia']
 
     data_transform = transforms.Compose([
-        transforms.Scale(224),
-        transforms.CenterCrop(224),
+        transforms.Scale(240),
+        transforms.CenterCrop(240),
         transforms.ToTensor(),
         transforms.Normalize(mean, std)
     ])
@@ -266,7 +266,7 @@ def show_next(dataloader, model, LABEL):
     pred = model(torch.autograd.Variable(original.cpu())).data.numpy()[0]
     predx = ['%.3f' % elem for elem in list(pred)]
     
-    fig, (showcxr,heatmap) =plt.subplots(ncols=2,figsize=(14,5))
+    fig, (showcxr,heatmap) =plt.subplots(ncols=2,figsize=(15,5))
     
     hmap = sns.heatmap(raw_cam.squeeze(),
             cmap = 'viridis',
