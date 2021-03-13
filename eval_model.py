@@ -102,7 +102,7 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
         thisrow['auc'] = np.nan
         try:
             thisrow['auc'] = sklm.roc_auc_score(
-                actual.as_matrix().astype(int), pred.as_matrix())
+                actual.as_matrix().astype(int), pred.as_matrix().astype(int)
         except BaseException:
             print("can't calculate auc for " + str(column))
         auc_df = auc_df.append(thisrow, ignore_index=True)
