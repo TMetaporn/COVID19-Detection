@@ -47,6 +47,10 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
 
         inputs, labels, _ = data
         inputs, labels = Variable(inputs.cuda()), Variable(labels.cuda())
+        
+        #### add #####
+        print(labels)
+        #### add #####
 
         true_labels = labels.cpu().data.numpy()
         batch_size = true_labels.shape
@@ -67,7 +71,7 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
                 thisrow["prob_" + dataset.PRED_LABEL[k]] = probs[j, k]
                 truerow[dataset.PRED_LABEL[k]] = true_labels[j, k]
             #####added new line####
-            print(truerow)
+#             print(truerow)
             #####added new line####
 
             pred_df = pred_df.append(thisrow, ignore_index=True)
