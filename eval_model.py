@@ -60,7 +60,11 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
             truerow = {}
             thisrow["Image Index"] = dataset.df.index[BATCH_SIZE * i + j]
             truerow["Image Index"] = dataset.df.index[BATCH_SIZE * i + j]
-
+            
+            #####added new line####
+            print(truerow)
+            #####added new line####
+            
             # iterate over each entry in prediction vector; each corresponds to
             # individual label
             for k in range(len(dataset.PRED_LABEL)):
@@ -74,7 +78,7 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
             print(str(i * BATCH_SIZE))
 
     auc_df = pd.DataFrame(columns=["label", "auc"])
-    print(true_df)
+#     print(true_df)
 
     # calc AUCs
     for column in true_df:
