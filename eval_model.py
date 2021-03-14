@@ -100,7 +100,6 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
         thisrow = {}
         thisrow['label'] = column
         thisrow['auc'] = np.nan
-        print(actual)
         print(pred)
 #         try:
 #         thisrow['auc'] = sklm.roc_auc_score(
