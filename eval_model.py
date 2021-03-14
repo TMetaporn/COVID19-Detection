@@ -61,10 +61,6 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
             thisrow["Image Index"] = dataset.df.index[BATCH_SIZE * i + j]
             truerow["Image Index"] = dataset.df.index[BATCH_SIZE * i + j]
             
-            #####added new line####
-            print(truerow)
-            #####added new line####
-            
             # iterate over each entry in prediction vector; each corresponds to
             # individual label
             for k in range(len(dataset.PRED_LABEL)):
@@ -73,6 +69,9 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
 
             pred_df = pred_df.append(thisrow, ignore_index=True)
             true_df = true_df.append(truerow, ignore_index=True)
+            #####added new line####
+            print(true_df)
+            #####added new line####
         
         if(i % 10 == 0):
             print(str(i * BATCH_SIZE))
