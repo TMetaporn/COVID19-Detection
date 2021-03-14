@@ -106,8 +106,8 @@ def make_pred_multilabel(data_transforms, model, PATH_TO_IMAGES):
             'Pleural_Thickening',
                 'Hernia']:
                     continue
-        actual = true_df[column]
-        pred = pred_df["prob_" + column]
+        actual = np.array(true_df[column])
+        pred = np.array(pred_df["prob_" + column])
         thisrow = {}
         thisrow['label'] = column
         thisrow['auc'] = np.nan
